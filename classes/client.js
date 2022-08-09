@@ -47,7 +47,7 @@ class Client extends discord.Client {
         try {
           let command = require(`${this.path}/${interaction.commandName}`);
 
-          command.run(interaction);
+          command.run(interaction, this);
         } catch (err) {
           console.error(err);
         }
