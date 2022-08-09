@@ -97,17 +97,7 @@ class Client extends discord.Client {
       NUMBER: 10,
     };
   }
-}
-
-/**
- * Client intents
- * @class Intents
- */
-class Intents extends discord.Intents {
-  constructor() {
-    super();
-  }
-}
+} 
 
 module.exports = {
   Client,
