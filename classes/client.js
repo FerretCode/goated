@@ -101,5 +101,4 @@ class Client extends discord.Client {
 
 module.exports = {
   Client,
-  Intents,
 };
