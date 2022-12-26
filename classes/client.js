@@ -85,7 +85,7 @@ class Client extends discord.Client {
     };
   }
 
-  types = {
+  static types = {
     SUB_COMMAND: 1,
     SUB_COMMAND_GROUP: 2,
     STRING: 3,
