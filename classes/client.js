@@ -11,7 +11,7 @@ class Client extends discord.Client {
   /**
    * @param {object} options the options for the client
    * @param {Intents} options.intents the intents for the client
-   * @param {string} options.path the path for commands
+   * @param {string} options.commandsPath the path for commands
    */
   constructor(options) {
     super({
@@ -19,7 +19,7 @@ class Client extends discord.Client {
     });
 
     this.intents = options.intents;
-    this.path = options.path;
+    this.path = options.commandsPath;
 
     /**
      * Make the client login using a .env file
@@ -83,21 +83,21 @@ class Client extends discord.Client {
         .put(Routes.applicationCommands(options.id), { body })
         .catch((err) => console.error(err));
     };
-
-    this.types = {
-      SUB_COMMAND: 1,
-      SUB_COMMAND_GROUP: 2,
-      STRING: 3,
-      INTEGER: 4,
-      BOOLEAN: 5,
-      USER: 6,
-      CHANNEL: 7,
-      ROLE: 8,
-      MENTIONABLE: 9,
-      NUMBER: 10,
-    };
   }
-} 
+
+  types = {
+    SUB_COMMAND: 1,
+    SUB_COMMAND_GROUP: 2,
+    STRING: 3,
+    INTEGER: 4,
+    BOOLEAN: 5,
+    USER: 6,
+    CHANNEL: 7,
+    ROLE: 8,
+    MENTIONABLE: 9,
+    NUMBER: 10,
+  };
+}
 
 module.exports = {
   Client,
