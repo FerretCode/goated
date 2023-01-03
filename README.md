@@ -43,7 +43,8 @@ client.createCommand([
   id: process.env.APPLICATION_ID, // the bot ID in
   token: process.env.TOKEN, // the bot token
   guildId: process.env.GUILD_ID, // optional for registering guild-specific commands
-});```
+});
+```
 
 Then, create a file with the same command name in the commands directory:
 
