@@ -53,4 +53,5 @@ module.exports.run = (interaction) => { // the interaction parameter is from the
   const option = interaction.options.getString("test-option");
   
   interaction.reply(`You provided the option: ${option}`)';
-};```
+};
+```
