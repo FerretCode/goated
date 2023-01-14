@@ -12,6 +12,7 @@ class Client extends discord.Client {
    * @param {object} options the options for the client
    * @param {Intents} options.intents the intents for the client
    * @param {string} options.commandsPath the path for commands
+   * @param {Array<string>} options.commandsFilter any command names you don't want to be ran by the command handler
    */
   constructor(options) {
     super({
@@ -20,6 +21,7 @@ class Client extends discord.Client {
 
     this.intents = options.intents;
     this.path = options.commandsPath;
+    this.filter = options.commandsFilter || [];
 
     /**
      * Make the client login using a .env file
@@ -43,6 +45,13 @@ class Client extends discord.Client {
     this.on("ready", () => {
       this.on("interactionCreate", (interaction) => {
         if (!interaction.isCommand()) return;
+
+        if (
+          this.filter.find(
+            (commandName) => commandName === interaction.commandName
+          )
+        )
+          return;
 
         try {
           let command = require(`${this.path}/${interaction.commandName}`);
