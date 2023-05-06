@@ -45,6 +45,7 @@ class Client extends discord.Client {
     this.on("ready", () => {
       this.on("interactionCreate", (interaction) => {
         if (!interaction.isCommand()) return;
+        if (interaction.isContextMenuCommand()) return;
 
         if (
           this.filter.find(
