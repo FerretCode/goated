@@ -11,15 +11,18 @@ class Client extends discord.Client {
   /**
    * @param {object} options the options for the client
    * @param {Intents} options.intents the intents for the client
+   * @param {Partials} options.partials the partials for the client
    * @param {string} options.commandsPath the path for commands
    * @param {Array<string>} options.commandsFilter any command names you don't want to be ran by the command handler
    */
   constructor(options) {
     super({
       intents: options.intents,
+      partials: options.partials,
     });
 
     this.intents = options.intents;
+    this.partials = options.partials;
     this.path = options.commandsPath;
     this.filter = options.commandsFilter || [];
 

@@ -1,7 +1,8 @@
 const { Client } = require("./classes/client");
-const { GatewayIntentBits } = require('discord.js');
+const { GatewayIntentBits, Partials } = require("discord.js");
 
 module.exports = {
   Client,
-  Intents: GatewayIntentBits
+  Intents: GatewayIntentBits,
+  Partials: Partials,
 };
